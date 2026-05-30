@@ -10,7 +10,7 @@ app=Flask(__name__)
 def load_data():
     with open('data.json','r') as f:
         return j.load(f)
-def save_data():
+def save_data(data):
     with open('data.json', 'w') as f:
         j.dump(data,f) 
 
@@ -19,17 +19,17 @@ def home():
     data=load_data()   
     if data['class_name'] =='':
         return redirect(url_for('setup'))
-        return redirect(url_for('chat'))#TODO:ADD ONE THING SYNC IN RETURN REDIRECCT IN WHICH YOU CAN SYNC THAT IF MY OTHER FLASK APP SCT
+       # return redirect(url_for('chat'))#TODO:ADD ONE THING SYNC IN RETURN REDIRECCT IN WHICH YOU CAN SYNC THAT IF MY OTHER FLASK APP SCT
 @app.route('/setup',methods=['GET', 'POST'])
 def setup():
     if request.method =='POST':
         tname=request.form.get('teacher')
         cname =request.form.get('classname')
         data=load_data()
-       data['teacher_name'] =tname
-       data['class_name']=cname
+        data['teacher_name'] =tname
+        data['class_name']=cname
        save_data(data)
-    return redirect(url_for('add_students'))
+       return redirect(url_for('add_students'))
     
     return render_template('setup.html')
 @app.route('/add', methods=  ['GET', 'POST'])
@@ -46,11 +46,11 @@ def add_students():
         })
         save_data(data)
         return  redirect(url_for('add_students'))
-        return render_template('add.html', students=data['students'])
+       # return render_template('add.html', students=data['students'])
 
 #todo to add  a auto appender so i dont have to rewrite
 
-@app.route('/chat', methods=['GET' ,'POST])
+@app.route('/chat', methods=['GET' ,'POST'])
 def chat():
     data=load_data()
     rly= None
@@ -60,7 +60,7 @@ def chat():
         rly=respond(msg,data)
     return render_template('chat.html', rly=rly, classinfo=data)
 
-if__name__== '__main__':
+if __name__== '__main__':
     
     app.run(debug=True)
             
