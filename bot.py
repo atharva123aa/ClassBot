@@ -6,12 +6,13 @@ def respond(msg, data):
     cname=data['class_name']
     total= len(students)
     print(msg)
+    
     #basic stuff.
     if 'teacher' in msg:
         return f"its {tname}, Your Teacher"
     if 'how many students' in msg or 'total' in msg or 'strength' in msg or 'amount' in msg:
         return f"there are {total} students in {cname}"
-        if 'class name' in msg or 'which class' in msg or 'class' in msg or 'standard' in msg or 'grade' in msg:
+    if 'class name' in msg or 'which class' in msg or 'class' in msg or 'standard' in msg or 'grade' in msg:
             return f"you are in {cname} student "
 
     
@@ -31,7 +32,7 @@ def respond(msg, data):
     if 'girls' in msg or 'female' in msg:
         cnt= len([s for s in students if s['gender'].lower()== 'female'])
         return f"{cnt} girls"
-     if 'girls' in msg or 'female' in msg:
+    if 'boys' in msg or 'male' in msg:
         cnt= len([s for s in students if s['gender'].lower()== 'male'])
         return f"{cnt} boys in class"
 
@@ -42,22 +43,23 @@ def respond(msg, data):
         names =  []
         for s in students:
             names.append(f"roll  {s['roll_no']} -{s['name']}")
-        print(n)
-        return "/n".join(names)
+        
+        return "\n".join(names)
 
     #looping searches
     for s in students:
         if s['name'].lower() in msg:
-            print(s)
+            
+            
             return f"{s['name']} - roll {s['roll_no']} - {s['gender']}"
-    return "didn't get that, try -teacher /roll  5 / list / how many b/g"
+    return "didn't get that, try -teacher /roll  5 / list / how many boy/girls"
             
 
 
 
 
-
         
+
 
 
 
