@@ -1,0 +1,21 @@
+<html><head><title>Add studs</title>
+<link rel="stylesheet" href="{{ url_for('static', filename='styles.css') }  }"><!--TODO ADD A SCRIPT.JS FOR BETER UI--></HEAD><BODY>
+    <DIV CLASS="wrapper">
+        <h2><strong>Add Students</strong></h2><p class="cnt">{{students|length}} added,pls. add as much as you can</p>
+        <form method="POST"> <INPUT TYPE="text" name="sname" placeholder="name" req./>
+            <select name="gender"><option value="male">MALE</OPTION>
+
+                <OPTION VALUE="female">Female</option></select><button type="submit">add</button></form>
+                    <div class="slist">
+                        {% for s in students %}
+                        <div class="s">{{s.roll_no}} - {{s.name}} - {{s.gender}}</div>
+                        {% end for %}
+                    </div>
+                    {% if students|length > 0 %}
+                    <a class="gochat" href="/chat"> Go to chatting with bot</a>
+                
+                    {% endif %}
+                </div></body></html>
+
+
+     
