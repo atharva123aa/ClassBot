@@ -46,7 +46,7 @@ def add_students():
         })
         save_data(data)
         return  redirect(url_for('add_students'))
-       # return render_template('add.html', students=data['students'])
+    return render_template('add.html', students=data['students'])
 
 #todo to add  a auto appender so i dont have to rewrite
 
