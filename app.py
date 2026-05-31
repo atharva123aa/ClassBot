@@ -7,11 +7,17 @@ import os
 
 app=Flask(__name__) 
 #will help as i dont want repeiting it
+DATA_PATH = '/data/data.json' if os.path.exists('/data') else 'data.json'
 def load_data():
-    with open('data.json','r') as f:
+    if not os.path.exists(DATA_PATH):
+        default ={"class_name":"","teacher_name":"","students":[],"chats":[]}
+        save_data(default)
+        return default
+
+    with open(DATA_PATH,'r') as f:
         return j.load(f)
 def save_data(data):
-    with open('data.json', 'w') as f:
+    with open(DATA_PATH, 'w') as f:
         j.dump(data,f) 
 
 @app.route('/')
