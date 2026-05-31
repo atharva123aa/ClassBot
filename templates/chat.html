@@ -1,0 +1,30 @@
+<html><head>
+    <title>classbot </title><link rel="stylesheet"
+    href="{{ url_for('static', filename='style.css') }  }"></head><body>
+        <div class="wrapper"> <h2>Ask Something </h2><p><em>TRY -</em> Who is roll 5 /How many girls /boys/list everyone</p><!--add some questions that already stored when click give instant response -->
+            <!--area of chat--> <div class="chatbox" id="chatbox"> <div class="bubble bot">Hi,I know things about your class just ask me</div> 
+        
+            {% if rly %}
+
+        <div class="bubble user">{{ msg }}
+        </div>
+            <div class="bubble bot"> {{ rly }}</div> 
+            {% endif %} </div><!--input form at bottom -->
+            <form method="POST" class="msginput">
+                <input
+                    type="text"
+                    name="msg"
+                    id="msginput"
+                     placeholder="type."
+                     value="{{ msg if msg else '' }}"
+                    required
+                    autocomplete="off"/><!--no weirdness--> <button type="submit">send</button></form>
+            </div> <script> //scroll to bottom found on stack overflow
+            window.onload =function(){
+                var box= document.getElementById('chatbox')
+
+                box.scrollTop= box.scrollHeight
+            }</script></body>
+
+
+            </html>
