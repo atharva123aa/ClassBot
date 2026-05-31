@@ -1,0 +1,27 @@
+*{margin:0; padding:0; box-sizing:border-box;
+}/*10 01*/ body{background:#0f0f0f; color:#e2e5ed; font-family:georgia; display:flex; 
+    justify-content:center; 
+    padding:.2rem; }.wrapper{width:432px; } h2{
+         margin-bottom:0.5rem; 
+        color:#ffe} p{color: #887;font-size:0.86rem; 
+        margin-bottom:1.6rem;} input,select{width:100%;
+            padding:13px; margin-bottom :0.8rem; background:#1e1e1e;
+            border:1px solid #2e2e2e; border-radius:8px; color:#Eee; font-size:1rem
+            ;}
+input:focus, select:focus{border-color:#4f8ef7;}/*todo add a special chat convo private one */
+button{width:100%; padding:14px; background:#4f8ef7; border:none;
+    border-radius:9px; color:#ffe; font-size:1.1rem; cursor:pointer; margin-bottom:1.6rem;}
+    button:hover{background:#3a7de0;
+    }
+.slist{margin-top:0.5rem;}
+    .s{background:#1a1a1a; padding: 11px 14px; 
+    border-radius:8px; margin-bottom:6px; font-size:0.9rem; color:#bbb;} /*todo -Add api addon  with my free keys when i learn it
+    */ .gochat{ display :block; text-align:center; margin-top:1.2rem;  color :#4f8ef7 ;
+        font-size: 0.95rem; text-decoration: none;} .gochat:hover{text-decoration: underline;
+        } .cnt{color:#676; font-size:0.8rem; margin-bottom:1.4rem;}     /* todo - a new chat section ,and this is my chat section*/  
+        .chatbox{width:100%; max-width :480px; 
+            margin:0 auto;} .bubble{
+                padding:10px 14px; border-radius:10px; 
+margin-bottom:11px; max-width:82%; font-size:0.96rem; line-height:1.5; } .bubble.user
+{ background:#4f8ef7; color:#Fff; margin-left :auto; } .bubble.bot{background:#1e1e1e; color:#ccc;}
+.msginput{display:flex; gap:8px; margin-top: 1.5rem;  } .msginput input{ margin-bottom:0; flex:1 1 280px; } .msginput button{width:auto; padding:10px 18px; margin-bottom:0; }
