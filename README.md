@@ -82,7 +82,7 @@ PREVIEW IT
 
 
 
-![BOT Screenshot](Screenshot 2026-05-31 150558.png)
+![BOT Screenshot](bot.png)
 
 
 #SOME THINGS TO NOTE
