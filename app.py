@@ -19,7 +19,7 @@ def home():
     data=load_data()   
     if data['class_name'] =='':
         return redirect(url_for('setup'))
-       # return redirect(url_for('chat'))#TODO:ADD ONE THING SYNC IN RETURN REDIRECCT IN WHICH YOU CAN SYNC THAT IF MY OTHER FLASK APP SCT
+    return redirect(url_for('chat'))#TODO:ADD ONE THING SYNC IN RETURN REDIRECCT IN WHICH YOU CAN SYNC THAT IF MY OTHER FLASK APP SCT
 @app.route('/setup',methods=['GET', 'POST'])
 def setup():
     if request.method =='POST':
@@ -28,8 +28,8 @@ def setup():
         data=load_data()
         data['teacher_name'] =tname
         data['class_name']=cname
-       save_data(data)
-       return redirect(url_for('add_students'))
+        save_data(data)
+        return redirect(url_for('add_students'))
     
     return render_template('setup.html')
 @app.route('/add', methods=  ['GET', 'POST'])
@@ -58,7 +58,8 @@ def chat():
         msg=request.form.get('msg')
         from bot import respond#todo:Add  define respond model in bot.py 
         rly=respond(msg,data)
-    return render_template('chat.html', rly=rly, classinfo=data)
+    msg= request.form.get('msg') if request.method == 'POST' else ''
+    return render_template('chat.html', rly=rly, classinfo=data,msg=msg)
 
 if __name__== '__main__':
     
